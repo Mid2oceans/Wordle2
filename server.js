@@ -8,20 +8,21 @@ app.set('view engine','ejs')
 app.use(express.static('public'));
 
 let hashWord
+// This is the word of the day json
+const data = require('./public/data/words.json');
+// const words = JSON.parse(data)
+let day = 1;
+console.log()
 
-// app.get('/word/word-of-the-day',(req, res,next) =>{
-//     // console.log(tools.unhash(req.params.wordId));
-//     hashWord = req.params.wordId;
-//     // res.send("hi")
-//     res.render('index');
-//     next() 
-// });
+app.get('/word-of-the-day',(req, res,next) =>{
+    hashWord = data["words"][day];
+    res.render('index');
+    next() 
+});
 
 
 app.get('/word/:wordId',(req, res,next) =>{
-    // console.log(tools.unhash(req.params.wordId));
     hashWord = req.params.wordId;
-    // res.send("hi")
     res.render('index');
     next() 
 });
