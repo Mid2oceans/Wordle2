@@ -12,7 +12,7 @@ app.get('/word/:wordId',(req, res,next) =>{
     hashWord = req.params.wordId;
     // res.send("hi")
     res.render('test');
-    next()
+    next() 
 });
 
 app.get('/answer123', (req,res) =>{
