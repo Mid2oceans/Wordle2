@@ -1,0 +1,151 @@
+
+
+/*For all text do this */
+* {
+    color: #fff;
+    font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-color: #121213;
+
+}
+
+.title-container{
+    text-align: center;
+    width: 510px;
+    border-bottom: solid 1px #3a3a3c;
+
+}
+
+.game-container{
+    height: 90vh; /* 90% of vh??*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tile-container{
+    width: 330px;
+    margin-bottom: 30px;
+}
+
+.key-container{
+    width: 510px;
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+
+/* Any button in key container... */
+.key-container button {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color: #818384;
+    margin: 4px;
+}
+.key-container button:nth-child(11){
+    margin-left: 30px;
+}
+.key-container button:nth-child(20),
+.key-container button:nth-child(28) {
+    width: 60px;
+
+}
+
+.tile-container div{
+    /* Allows the tiles to go side by side and not one in each row */
+    display: flex;
+}
+
+.tile-container .tile{
+    width: 62px;
+    height: 62px;
+    border: 2px solid #3a3a3c;
+    box-sizing: border-box;
+    
+    /* These are so the letters follow it */
+    font-size:larger;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+
+}
+
+.message-container{
+    height: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.message-container p{
+    background-color:#818384 ;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0;
+}
+
+.tile-container .inside{
+background-color: #e6b327;
+
+}
+
+.tile-container .correct{
+background-color: #7db700;
+    
+    }
+
+.tile-container .incorrect{
+background-color: #333333;
+        
+    }
+
+.key-container .correctButton{
+        background-color: #7db700;
+                
+    }
+
+.key-container .incorrectButton{
+        background-color: #333333;
+                
+    }
+
+.tile.flip{
+    animation: 0.5s linear flipping;
+}
+
+
+
+@keyframes flipping {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+/* .tile-container.shake {
+    animation: 0.5s linear shake;
+}
+@keyframes shake {
+    0% {
+        transform: translate(10px)
+    }
+    50% {
+        transform: translate(-10px)
+    }
+    100% {
+        transform: translate(10px)
+    }
+} */
+
+/* #707273 */
