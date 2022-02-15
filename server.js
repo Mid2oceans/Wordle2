@@ -11,7 +11,7 @@ app.get('/word/:wordId',(req, res,next) =>{
     // console.log(tools.unhash(req.params.wordId));
     hashWord = req.params.wordId;
     // res.send("hi")
-    res.render('index');
+    res.render('test');
     next()
 });
 
