@@ -29,11 +29,7 @@ const setWordle = (word) => {
 }
 
 console.log(wordle)
-// wordle = fetchedData
 
-// const getWordle = () =>{
-
-// }
 let tempWord = wordle
 let allCorrect = true
 let messageActive = false
@@ -160,8 +156,11 @@ const enter = () => {
             
             setTimeout(() => {
                 showMessage("Magnificent!")
-                showPopUp()
             }, 500 * 5)
+
+            setTimeout(() => {
+                showPopUp()
+            }, 500 *7)
 
         }
     }
@@ -380,6 +379,7 @@ const decryptWord = (word) =>{
 const makeUrl = (hash) =>{
     console.log(hash)
     console.log(window.location.href)
+    //This needs to be fixed for taking out prev word hash
     let currentUrl = window.location.href.replace('word-of-the-day','word/')
     return  currentUrl+hash
 
