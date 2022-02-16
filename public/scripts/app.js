@@ -6,18 +6,26 @@ const popUpDisplay = document.querySelector('.popUp-container');
 let wordle = "SUPER";
 
 let scoreText =''
+let shareUrl = ''
 
 fetch('http://localhost:8000/answer123')
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        setWordle(data['hashWord'].toUpperCase())
+        setWordle(data['hashWord'])
         console.log(wordle)
     }
     );
 
 const setWordle = (word) => {
-    wordle = word
+    console.log(word)
+    if(word.length > 5){
+        wordle = decryptWord(word).toUpperCase()
+    }
+    else{
+        wordle = (word).toUpperCase()
+    }
+    
 }
 
 console.log(wordle)
@@ -301,10 +309,14 @@ const showPopUp = () => {
     const alertText = document.createElement('p')
     alertText.classList.add('alertText')
 
+    //Share to friend
     shareButton.addEventListener('click', () => {
         //make sure 5 letters
         if(inputWord.value.length==5){
-            console.log(inputWord.value.length)
+            // inputWord.value.text
+            eWord = encryptWord(inputWord.value)
+            shareUrl= makeUrl(eWord)
+            // console.log(inputWord.value)
             if(navigator.share){
                 navigator.share({
                     title:'WORDLE',
@@ -319,13 +331,14 @@ const showPopUp = () => {
 
                 alertText.textContent = "Link Copied!"
                 content.append(alertText)
+                //copy to clipboard
+                navigator.clipboard.writeText(shareUrl)
             }
         }
         else{
             alertText.textContent = "6 Letters Required!"
             content.append(alertText)
-            //copy to clipboard
-            navigator.clipboard.writeText(copyText.value)
+
         }
 
        
@@ -350,13 +363,25 @@ const showPopUp = () => {
 
        
     })
-    
-
-    
-
-
 
     // render the modal with child on DOM
+
+}
+
+const encryptWord = (word) =>{
+    console.log(word)
+    let newWord= window.btoa(word);
+    console.log(newWord)
+    return newWord
+}
+const decryptWord = (word) =>{
+    return window.atob( word );
+}
+const makeUrl = (hash) =>{
+    console.log(hash)
+    console.log(window.location.href)
+    let currentUrl = window.location.href.replace('word-of-the-day','word/')
+    return  currentUrl+hash
 
 }
 
