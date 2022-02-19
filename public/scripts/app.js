@@ -14,17 +14,18 @@ document.querySelector(".challenge-friend").onclick = function(){
     document.location = "http://localhost:8000/word/byeWorld";    
 };
 
-// fetch('http://localhost:8000/answer123')
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data)
-//     setWordle(data['hashWord'])
-//   }
-//     );
+fetch('http://localhost:8000/answer123')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    setWordle(data['hashWord'].toUpperCase())
+    console.log(wordle)
+  }
+    );
 
-// const setWordle = (word) =>{
-//     wordle = word
-// }
+const setWordle = (word) =>{
+    wordle = word
+}
 
 console.log(wordle)
 // wordle = fetchedData

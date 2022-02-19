@@ -4,8 +4,8 @@ var app = express();
 const cors = require('cors');
 app.use(cors());
 
-app.set('view engine','ejs');
-app.use(express.static("public"));
+app.set('view engine','ejs')
+app.use(express.static('public'));
 
 let hashWord;
 app.get('/word/:wordId',(req, res,next) =>{
@@ -13,7 +13,7 @@ app.get('/word/:wordId',(req, res,next) =>{
     hashWord = req.params.wordId;
     // res.send("hi")
     res.render('index');
-    next(); 
+    next() 
 });
 
 app.get('/answer123', (req,res) =>{
