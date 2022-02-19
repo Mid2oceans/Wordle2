@@ -3,6 +3,16 @@ const messageDisplay = document.querySelector('.message-container')
 const keybaord = document.querySelector('.key-container');
 const popUpDisplay = document.querySelector('.popUp-container');
 
+
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const database = getDatabase(firebaseApp);
+const analytics = getAnalytics(firebaseApp);
+
+
+
+
 let wordle = "SUPER";
 
 let scoreText =''
@@ -180,8 +190,6 @@ const checkAnswer = () => {
     for (let i = 0; i < 5; i++) {
         if (wordle[i] != guessRows[currentRow][i]) {
             allCorrect = false
-            
-            // 🟧
         }
         else{
             
