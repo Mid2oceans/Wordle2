@@ -6,24 +6,15 @@ const popUpDisplay = document.querySelector('.popUp-container');
 
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const database = getDatabase(firebaseApp);
-const analytics = getAnalytics(firebaseApp);
+// const firebaseApp = initializeApp(firebaseConfig);
+// const database = getDatabase(firebaseApp);
+// const analytics = getAnalytics(firebaseApp);
 
 let wordle = "SUPER";
 let scoreText =''
 let shareUrl = ''
 
 
-document.querySelector(".word-day").onclick = function(){
-    console.log("pressed");
-    document.location = "http://localhost:8000/word/helloWorld";    
-};
-
-document.querySelector(".challenge-friend").onclick = function(){
-    console.log("clicked 2");
-    document.location = "http://localhost:8000/word/byeWorld";    
-};
 
 fetch('http://localhost:8000/answer123')
     .then(response => response.json())

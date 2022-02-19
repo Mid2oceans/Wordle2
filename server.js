@@ -16,35 +16,40 @@ let day = 1;
 //Firebase things
 //=========================================================================
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getDatabase } from "firebase/database";
-import { add } from "nodemon/lib/rules";
-// https://firebase.google.com/docs/web/setup#available-libraries
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// import { getDatabase } from "firebase/database";
+// import { add } from "nodemon/lib/rules";
+// // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCzVe4hNu9CtGe-fWsKxzUc1DbXnkIByf8",
-  authDomain: "wordle-afc37.firebaseapp.com",
-  databaseURL: "https://wordle-afc37-default-rtdb.firebaseio.com",
-  projectId: "wordle-afc37",
-  storageBucket: "wordle-afc37.appspot.com",
-  messagingSenderId: "544820127245",
-  appId: "1:544820127245:web:cabbae95a59e5bd2419744",
-  measurementId: "G-PP1W4J1B91"
-};
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCzVe4hNu9CtGe-fWsKxzUc1DbXnkIByf8",
+//   authDomain: "wordle-afc37.firebaseapp.com",
+//   databaseURL: "https://wordle-afc37-default-rtdb.firebaseio.com",
+//   projectId: "wordle-afc37",
+//   storageBucket: "wordle-afc37.appspot.com",
+//   messagingSenderId: "544820127245",
+//   appId: "1:544820127245:web:cabbae95a59e5bd2419744",
+//   measurementId: "G-PP1W4J1B91"
+// };
 
-// Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const database = getDatabase(firebaseApp);
-const analytics = getAnalytics(firebaseApp);
+// // Initialize Firebase
+// const firebaseApp = initializeApp(firebaseConfig);
+// const database = getDatabase(firebaseApp);
+// const analytics = getAnalytics(firebaseApp);
 
 
 //============================================================================
+    
 
 app.get('/word-of-the-day',(req, res,next) =>{
     hashWord = data["words"][day];
+    // res.send("hi")
+    res.render('index');
+    next() 
+});
 
 app.get('/word/:wordId',(req, res,next) =>{
     // console.log(tools.unhash(req.params.wordId));
@@ -99,10 +104,10 @@ const checkForGame =(gameID) =>{
 }
 
 
-const addGame =(gameID,player1,player2) =>{
-    set(database.ref('/games/'+gameID),{
-        gameID:gameID,
-        players:[player1,player2]
-    })
+// const addGame =(gameID,player1,player2) =>{
+//     set(database.ref('/games/'+gameID),{
+//         gameID:gameID,
+//         players:[player1,player2]
+//     })
     
-}
+// }
