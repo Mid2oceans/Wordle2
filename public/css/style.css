@@ -210,3 +210,41 @@ background-color: #333333;
 } */
 
 /* #707273 */
+
+/* Code for main.ejs*/
+.game-container-2{
+    height: 70vh; /* 90% of vh??*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word-day{
+    background-color: #fff;
+    color:black;
+    font-size: 2em;
+    padding: 0.25em 1.4em;
+    width: 25%;
+    text-align: center;
+}
+
+.challenge-friend{
+    background-color: #fff;
+    color:black;
+    font-size: 2em;
+    padding: 0.25em 1.4em;
+    width: 25%;
+    text-align: center;
+}
+
+.main-option:hover{
+    cursor: pointer;
+}
+
+.main-option-2 input{
+    padding: 0.25em 1.4em;
+    border: none;
+    color:black;
+    text-align: center;
+}
